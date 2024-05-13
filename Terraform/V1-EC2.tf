@@ -7,7 +7,8 @@ resource "aws_instance" "demo-server" {
   instance_type = "t2.micro"
   key_name = "devops-key"
   subnet_id = aws_subnet.demo-public-subnet-01.id
-  security_groups = [ demo-sg ]
+  //security_groups = [ demo-sg ]
+  vpc_security_group_ids = [ aws_security_group.demo-sg.id ]
 }
 
 
@@ -82,7 +83,7 @@ resource "aws_internet_gateway" "demo-igw" {
 
 resource "aws_route_table" "demo-public-rt" {
   vpc_id = aws_vpc.demo-vpc.id
-  route = {
+  route {
     cidr_block = "0.0.0.0/0"
     gateway_id = aws_internet_gateway.demo-igw.id
   }
