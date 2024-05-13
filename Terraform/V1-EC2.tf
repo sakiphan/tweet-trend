@@ -71,3 +71,10 @@ resource "aws_subnet" "demo-public-subnet-02"{
   }
 }
 
+resource "aws_internet_gateway" "demo-igw" {
+  vpc_id = aws_vpc.demo-vpc.id
+  tags = {
+    Name = "devops-igw"
+  }
+}
+
