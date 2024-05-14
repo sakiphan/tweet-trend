@@ -20,7 +20,6 @@ This project leverages a robust set of tools and technologies to ensure efficien
 - **Prometheus**: Monitoring and alerting toolkit.
 - **Grafana**: Visualization and analytics for monitoring data.
 - **Helm**: Package manager for Kubernetes.
-- **SonarQube**: Continuous inspection of code quality and security.
 - **JFrog Artifactory**: Universal artifact repository manager.
 
 These technologies work together to create a seamless CI/CD pipeline, enabling efficient and reliable deployment and maintenance of the application.
