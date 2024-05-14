@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sakiphan-rtp
+  namespace: sakiphan
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app:  sakiphan-rtp
+  template:
+    metadata:
+      labels:
+        app:  sakiphan-rtp
+    spec:
+      imagePullSecrets:
+      - name: jfrogcred
+      containers:
+      - name:  sakiphan-rtp
+        image: sakiphan.jfrog.io/sakiphan-docker/ttrend:2.1.2
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8000
+        env:
+        - name: CONSUMER_KEY
+          value: "YOUR_KEY"
+        - name: CONSUMER_SECRET
+          value: "YOUR_SECRET"
+        - name: ACCESS_TOKEN
+          value: "YOUR_TOKEN"
+        - name: ACCESS_TOKEN_SECRET
+          value: "YOUR_TOKEN"
